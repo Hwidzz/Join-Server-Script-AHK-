@@ -1,0 +1,18 @@
+#Persistent
+SetTimer, ClickAndEscape, Off  ; Timer is off initially
+Interval := 200  ; Set the interval to 200 ms (0.2 seconds)
+ClickToEscDelay := 200  ; Delay between click and pressing Escape in milliseconds (adjust as needed)
+
+J::
+    SetTimer, ClickAndEscape, %Interval%
+    return
+
+K::
+    SetTimer, ClickAndEscape, Off
+    return
+
+ClickAndEscape:
+    Click  ; Perform a left-click
+    Sleep, %ClickToEscDelay%  ; Delay before pressing Escape
+    Send, {Esc}  ; Press "Escape"
+    return
